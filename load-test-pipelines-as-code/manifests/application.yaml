@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: load-test-app
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/rini1301/load-test-pipelines-as-code'
+    path: manifests/
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: k6-operator
+  syncPolicy:
+    automated: {}

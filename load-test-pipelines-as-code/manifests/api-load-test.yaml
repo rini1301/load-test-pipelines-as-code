@@ -1,0 +1,10 @@
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  name: checkout-service-test
+spec:
+  parallelism: 3
+  script:
+    configMap:
+      name: k6-scripts
+      file: checkout-test.js
