@@ -1,14 +1,11 @@
 stages:
-  - validate
-  - test
+  - loadtest
 
 load_test:
-  stage: test
-  image: grafana/k6:latest-with-operator
+  stage: loadtest
+  image: grafana/k6
   script:
-    - k6 run ./k6-script/checkout-test.js
+    - k6 run checkout-test.js
   artifacts:
-    paths: [results.json]
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-    - if: $CI_PIPELINE_SOURCE == "schedule"
+    paths:
+      - result.json
