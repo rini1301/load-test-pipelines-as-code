@@ -1,9 +1,9 @@
 apiVersion: k6.io/v1alpha1
-kind: K6
+kind: TestRun
 metadata:
   name: checkout-service-test
 spec:
-  parallelism: 3
+  parallelism: 1
   script:
     configMap:
       name: k6-scripts
