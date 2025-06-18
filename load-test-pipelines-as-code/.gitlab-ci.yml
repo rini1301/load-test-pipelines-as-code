@@ -1,0 +1,11 @@
+stages:
+  - loadtest
+
+load_test:
+  stage: loadtest
+  image: grafana/k6
+  script:
+    - k6 run checkout-test.js
+  artifacts:
+    paths:
+      - result.json
